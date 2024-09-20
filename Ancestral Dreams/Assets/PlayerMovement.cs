@@ -11,7 +11,7 @@ public class PlayerMovement : MonoBehaviour
     float horizontalMovement;
 
     [Header("Jump")]
-    public float jumpPower = 0.10f;
+    private readonly float jumpPower = 8f;
 
     [Header("GroundCheck")]
     public Transform groundCheckPos;
@@ -36,7 +36,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (context.performed)
             {
-                rb.velocity = new Vector2(rb.velocity.x, jumpPower);
+                rb.velocity = new Vector2(rb.velocity.x, this.jumpPower);
             }
             else if (context.canceled)
             {
